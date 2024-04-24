@@ -1,0 +1,413 @@
+{% extends 'base.html' %}
+{% block body %} 
+
+
+<style>
+    #progressbar {
+        padding-left: 19%;
+    }
+
+    #progressbar li {
+        width: 20%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #progressbar li {
+            font-size: 10px;
+        }
+    }
+</style>
+
+<script type="text/javascript">
+    window.onload = function () {
+        OpenBootstrapPopup();
+    };
+    function OpenBootstrapPopup() {
+        $("#error").modal('show');
+    }
+</script>
+
+<form action="/to_themes.html" method="post" id="msform">
+
+    <!-- Title + info button -->
+    <div class="container">  
+        <div class="main">
+            <h1>Basic Questions</h1>
+            <button type="button" class="action-button-bigger" data-bs-toggle="modal" data-bs-target="#exampleModal0">
+                Information
+            </button>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <li class="active">Question 1</li>
+        <li>Question 2</li>
+        <li>Question 3</li>
+        <li>Question 4</li>
+    </ul>
+
+    <!-- Question 1 -->
+    <fieldset>
+
+        <h2 class="fs-title">Question 1</h2>
+        
+
+        <div class="col">
+            <div class="card p-3 mb-2 baseBlock">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+
+                        <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+                        <div class="ms-2 c-details">
+                            <h3 class="mb-0">How many people do you want to play with?</h3>
+                            <!-- <h6 class="mb-0 text-left">Themes</h6> -->
+
+                            <!-- Button -->
+                            <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt-4">
+
+                    <h3 class="heading text-left">Number of players:</h3><br>
+                    <!-- <input type="range" class="form-range" min="1" max="99" id="customRange1"><br><br><br><br> -->
+
+                    <div class="range-slider flat" data-ticks-position='top' style='--min:1; --max:99; --step:1; --value:50; --text-value:"50"; --suffix:"&nbsp;player(s)"'>
+                        <input type="range" min="1" max="99" step="1" value="50" name="Players" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                        <output></output>
+                        <div class='range-slider__progress'></div>
+                    </div>
+                    <br><br>
+
+                </div>
+            </div>
+        </div>
+
+
+        <input type="button" name="next" class="next action-button" value="Next"/>
+
+    </fieldset>
+
+    <!-- Question 2 -->
+    <fieldset>
+
+        <h2 class="fs-title">Question 2</h2>
+
+        <div class="col">
+            <div class="card p-3 mb-2 baseBlock">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+
+                        <div class="icon"><i class="fa-solid fa-baby"></i></div>
+                        <div class="ms-2 c-details">
+                            <h3 class="mb-0">What age is the youngest person that is going to play with you?</h3>
+                            <!-- <h6 class="mb-0 text-left">Themes</h6> -->
+
+                            <!-- Button -->
+                            <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt-4">
+
+                    <h3 class="heading text-left">Age:</h3><br>
+                    <!-- <input type="range" class="form-range" min="0" max="99" id="customRange2"><br> -->
+                    
+                    <div class="range-slider flat" data-ticks-position='top' style='--min:0; --max:99; --step:1; --value:50; --text-value:"50"; --suffix:"&nbsp;year(s)"'>
+                        <input type="range" min="0" max="99" step="1" value="50" name="Age" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                        <output></output>
+                        <div class='range-slider__progress'></div>
+                    </div>
+                    <br><br>
+
+                </div>
+            </div>
+        </div>
+
+        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+        <!-- <input type="button" name="next" class="next action-button" value="Next"/> -->
+        <button type="button" name="next" class="next action-button" value="Next" data-bs-toggle="modal" data-bs-target="#over300">Next</button>
+
+    </fieldset>
+
+    <!-- Question 3 -->
+    <fieldset>
+
+        <h2 class="fs-title">Question 3</h2>
+
+        <div class="col">
+            <div class="card p-3 mb-2 baseBlock">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+
+                        <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="ms-2 c-details">
+                            <h3 class="mb-0">How long should the game last?</h3>
+                            <!-- <h6 class="mb-0 text-left">Themes</h6> -->
+
+                            <!-- Button -->
+                            <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt-4">
+
+                    <h3 class="heading text-left">Time:</h3><br>
+                    <!-- <input type="range" min="5" max="300" value="20" step="5" id="customRange3"><br> -->
+
+                    <div class="range-slider flat" data-ticks-position='top' style='--min:5; --max:300; --value-a:75; --value-b:225; --suffix:"&nbsp;minute(s)"; --text-value-a:"75"; --text-value-b:"225";'>
+                        <input type="range" min="5" max="300" value="75" step="5" name="Time_min" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+                        <output></output>
+                        <input type="range" min="5" max="300" value="225" step="5" name="Time_max" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+                        <output></output>
+                        <div class='range-slider__progress'></div>
+                    </div>
+
+                    <br><br>
+
+                </div>
+            </div>
+        </div>
+
+        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+        <input type="button" name="next" class="next action-button" value="Next"/>
+
+    </fieldset>
+    
+
+    <!-- Question 4 -->
+    <fieldset>
+
+        <h2 class="fs-title">Question 4</h2>
+
+        <div class="col">
+            <div class="card p-3 mb-2 baseBlock">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+
+                        <div class="icon"><i class="fa-solid fa-brain"></i></div>
+                        <div class="ms-2 c-details">
+                            <h3 class="mb-0">How difficult do you want the game to be?</h3>
+                            <!-- <h6 class="mb-0 text-left">Themes</h6> -->
+
+                            <!-- Button -->
+                            <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt-4">
+
+                    <h3 class="heading text-left">Difficulty level:</h3><br>
+                    <!-- <input type="range" class="form-range" min="1" max="5" step="0.5" id="customRange4"><br> -->
+
+                    <div class="range-slider flat" data-ticks-position='top' style='--min:1; --max:5; --value-a:2; --value-b:4; --text-value-a:"2"; --text-value-b:"4";'>
+                        <input type="range" min="1" max="5" value="2" step="0.5" name="Dif_min" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+                        <input type="range" min="1" max="5" value="4" step="0.5" name="Dif_max" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+                        <div class='range-slider__progress'></div>
+                    </div>
+                    <br><br>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <i class="fa-regular fa-face-grin-tongue-wink fa-xl"></i>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-face-laugh-wink fa-xl"></i>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-face-grin-beam-sweat fa-xl"></i>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-face-grimace fa-xl"></i>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-face-tired fa-xl"></i>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+        <button input="" type="submit" class="submit action-button">Submit</button>
+
+    </fieldset>
+
+</form>
+
+<!-- Modal card 0 -->
+<div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Information</h1>
+            </div>
+            <div class="modal-body">
+                Welcome to the general questions.
+                These will make sure that you only recieve recommendations that fit your specific group of people.
+                If you do not understand the question you can press the ? for more information.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal card 1 -->
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Number of players</h1>
+            </div>
+            <div class="modal-body">
+                Move the slider to indicate the amount of people that you want to play the game with.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal card 2 -->
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Age</h1>
+            </div>
+            <div class="modal-body">
+                Move the slider to indicate the age of the youngest player that is going to play the game.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal card 3 -->
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Duration</h1>
+            </div>
+            <div class="modal-body">
+                Move the sliders to indicate what the minimum and the maximum time is that the game should last.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal card 4 -->
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Difficulty</h1>
+            </div>
+            <div class="modal-body">
+                Move the sliders to indicate what the minimum and the maximum difficulty level of the game should be. <br><br>
+                Left: Super easy.<br>
+                Center: Not too easy, not too difficult.<br>
+                Right: Extremely difficult.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal card over300 -->
+
+<div class="modal fade" id="over300" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Watch Out!</h1>
+            </div>
+            <div class="modal-body">
+                If you fill in 300 as a maximum, you will also get games that last for 300+ minutes!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal card error -->
+
+<div class="modal fade" id="error" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Error!</h1>
+            </div>
+            <div class="modal-body">
+                We couldn't find enough games that match your requirements. Please fill in again and try to broaden your answers.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

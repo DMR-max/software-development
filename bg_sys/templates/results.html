@@ -1,0 +1,467 @@
+{% extends 'base.html' %}
+{% block body %} 
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/4a5b92dba1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.5/css/perfect-scrollbar.css"/>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.5/perfect-scrollbar.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+  
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+  /*Background*/
+  body {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    background: url("static/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  /* loading screen */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(static/loading2.gif) center no-repeat #e7dfdd;
+}
+.loading{
+  opacity: 0;
+  transition: opacity 2s;
+  -webkit-transition-delay: 6s;
+  -moz-transition-delay: 6s;
+  transition-delay: 6s;
+
+
+}
+.loading.change {
+  opacity: 1;
+  transition: all 2s;
+    -webkit-transition-delay: 6s;
+  -moz-transition-delay: 6s;
+  transition-delay: 6s;
+}
+
+/* change for the head of the table */
+.table100-head th{
+  font-family:'Open Sans' !important;
+  font-size:20px;
+  color:black;
+  line-height:1.2;
+  font-weight: bold;
+  
+}
+
+tbody tr{
+  font-family:'Open Sans' !important;
+  font-size:15px;
+  color:grey;
+  line-height:1.2;
+  font-weight:unset;
+}
+
+/* image changes */
+img{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/*basic changes for prettier design */
+html {
+  height:100%;
+  font-family:sans-serif;
+}
+
+.container-table100{
+  width:100%;
+  min-height:100vh;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-moz-box;
+  display:-ms-flexbox;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:33px 30px;
+}
+.wrap-table100{
+  width:75%;
+}
+table{
+  border-spacing:1;
+  border-collapse:collapse;
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  width:100%;
+  margin:0 auto;
+}
+table td,table th{
+  padding-left:8px;
+}
+table thead tr{
+  height:60px;
+  background:#d6f1ff;
+}
+/* change for the height of the body of the table each row */
+table tbody tr{
+  height:50px;
+}
+/* change for the alignment of the table */
+table td,table th{
+  text-align:left;
+}
+table td.l,table th.l{
+  text-align:right;
+}
+table td.c,table th.c{
+  text-align:center;
+}
+table td.r,table th.r{
+  text-align:center;
+}
+/* general row style */
+tbody tr:nth-child(even){
+  background-color:#e6f2f9;
+}
+
+/*changes on hover of a row */
+tbody tr:hover{
+  color:#555;
+  background-color:#d6f1ff;
+  cursor:pointer;
+}
+/*for column size */
+.column1{
+  width:260px;
+  margin:auto;
+  padding-left:2%;
+  width:10%;
+}
+.column2{
+  width:160px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width:25%;
+}
+.column3{
+  width:245px;
+  margin:auto;
+  font-size: 20px; 
+}
+.column4{
+  width:245px;
+  margin:auto;
+  font-size: 20px; 
+}
+
+.thread-light{
+  background: silver;
+}
+
+
+
+/* All delay classes will take 2x longer to start */
+:root {
+  --animate-delay: 3s;
+}
+
+.block {
+	transition: transform 0.6s cubic-bezier(0.64, 0, 0.78, 0);
+}
+
+/*Hover animation so they pop up*/
+.baseBlock {
+    overflow: hidden;
+    animation-name: base;
+    -moz-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -o-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+.baseBlock:hover {
+    -webkit-transform: translate(0, -8px);
+    -moz-transform: translate(0, -8px);
+    -ms-transform: translate(0, -8px);
+    -o-transform: translate(0, -8px);
+    transform: translate(0, -8px);
+    box-shadow: 0 40px 40px rgba(0, 0, 0, 0.2);
+    animation-name: baseBlock;
+}
+/* shine animation */
+.image-wrapper {
+  height: 85%;
+  width: 85%; 
+  border-radius: 6px; 
+  display: flex; 
+  align-items: center;
+  text-align: center;
+  line-height: 1.6; 
+}
+.image-wrapper img {
+  height: auto;
+  max-width: auto;
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::before {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: -75%;
+  position: absolute;
+  top: 0;
+  transform: skewX(-25deg);
+  width: 50%;
+  z-index: 2;
+}
+.shine:hover::before, .shine:focus::before {
+  -webkit-animation: shine 0.85s;
+          animation: shine 0.85s;
+}
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+ /* for smaller screen changes */
+ @media screen and (max-width:950px){
+    table{
+      display:block;
+    }
+    table>*,table tr,table td,table th{
+      display:block;
+    }
+    table thead{
+      display:none;
+    }
+    table tbody tr{
+      height:auto;
+      padding:37px 0;
+    }
+    table tbody tr td{
+      padding-left:10% !important;
+      margin-bottom:24px;
+    }
+    table tbody tr td:last-child{
+      margin-bottom:0;
+    }
+    table tbody tr td:before{
+      font-family:'Open Sans' !important;
+      font-size:14px;
+      color:#999;
+      line-height:1.2;
+      font-weight:unset;
+      width:40%;
+      left:10px;
+      top:0; 
+    }
+    table tbody tr td:nth-child(1):before{
+      content:"Ranking";
+      margin-right: 20px;
+      font-weight: bold;
+    }
+    table tbody tr td:nth-child(2):before{
+      content:"Photo";
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-weight: bold;
+    }
+    table tbody tr td:nth-child(3):before{
+      content:"Name";
+      margin-right: 20px;
+      font-weight: bold;
+    }
+    table tbody tr td:nth-child(4):before{
+      content:"Rating";
+      margin-right: 20px;
+      font-weight: bold;
+    }
+    .column4,.column6,.column1,.column2,.column3{
+      width:100%;
+      font-size: 14px;
+      margin-right: 20px;
+    }
+
+    tbody tr{
+      font-size:14px;
+    }
+    .se-pre-con {
+      background-size: 50%;
+    }
+    .image-wrapper {
+      width: 50%; 
+    }
+  }
+@media(max-width:576px){
+  .container-table100{
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
+
+.table100-head{
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  
+}
+
+
+
+</style>
+  <!-- Title -->
+  <div class="container">  
+    <div class="main">
+        <h1>Results</h1>
+    </div>
+  </div>
+  <!-- loading icon -->
+  <div class="se-pre-con" ></div>
+  <!-- loading screen -->
+  <div class="loading">
+    <!-- loading animation -->
+    <div class ="animate__animated animate__fadeIn">
+      <!-- container for the table -->
+      <div class="container-table100">
+        <!-- wrapper for the table -->
+        <div class="wrap-table100">
+          <!-- the table for css -->
+            <div class="table100">
+            <!-- the table itself loaded in from pandas -->
+            {% for table in tables %}
+                        {{ table|safe }}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script> 
+    //animation for when a game is not shown yet to make it slowly fade in
+    ScrollReveal().reveal("tr");   
+    $( document ).ready(function() {
+
+      //variables for the loops 
+      const tr = document.querySelectorAll('table > thead > tr');
+      const tr2 = document.querySelectorAll('table > tbody > tr');
+      const th = document.querySelectorAll('table > thead > tr > th');
+      const th2 = document.querySelectorAll('table > tbody > tr > td');
+
+      //for each loop for the proper stylings for table heads like ratings or images
+      tr.forEach(e => e.classList.add('table100-head'));
+
+      //adding classes for table header
+      let p;
+      for (let i = 0; i < th.length; i++) {
+        p = i + 1
+        th[i].classList.add('column' + p, 'sticky-table-headers__sticky' );
+      }
+
+      //adding correct classes for the columns
+      let t = 1;
+      for (let i = 0; i < th2.length; i++) {
+        if (i % 4 == 0){
+          t = 1;
+        }
+          th2[i].classList.add('column' + t);
+        t++;
+        
+      }
+
+      //adding the delay and animation for checkerboard pattern
+      let c = 3;
+      for (let i = 0; i < 4; i++) {
+        if (i % 2 == 0){
+          tr2[i].classList.add('animate__animated', 'animate__fadeInLeft', 'animate__delay-' + c + 's');
+        }else{
+          tr2[i].classList.add('animate__animated', 'animate__fadeInRight', 'animate__delay-' + c + 's' );
+        }
+      }
+
+      //adding the images and links and animations to the correct boardgame
+      let image;
+      let array_id = new Array();
+
+      for (i = 1; i < $('.column2').length; i++){
+        image = document.getElementsByClassName('column2')[i].innerHTML;
+        array_id = image.split(",");
+        image = "<a class='image-wrapper shine' target='_blank' href = https://boardgamegeek.com/boardgame/" + array_id[1] + "><img class = 'baseBlock' src='" + array_id[0] + "' width = '80%';>" + "</img></a>";
+        $( ".column2" ).eq(i).html(image);
+      }
+
+      //adding the rating to html
+      let rating;
+      for (i = 1; i < $('.column4').length; i++){
+          rating = document.getElementsByClassName('column4')[i].innerHTML;
+          rating = getStars(rating);
+          $( ".column4" ).eq(i).html(rating);
+      }
+
+      //loading screen changer
+      document.querySelector('.loading').classList.toggle('change');
+
+      //timeout for the loading screen fadeout
+      setTimeout(fadeout,7000);
+      
+    });
+
+    //loading screen fadeout
+    function fadeout(){
+      $(".se-pre-con").fadeOut(2000, "linear")
+    }
+    
+    
+    //from ratings to stars
+    function getStars(rating) {
+
+      // Round to nearest half
+      rating = Math.round(rating * 2) / 2;
+      let output = [];
+
+      // Append all the filled whole stars
+      for (var i = rating; i >= 1; i--)
+        output.push('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;');
+
+      // If there is a half a star, append it
+      if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true"></i>&nbsp;');
+
+      // Fill the empty stars
+      for (let i = (10 - rating); i >= 1; i--)
+        output.push('<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;');
+
+      return output.join('');
+
+    }
+  </script>
+   
+  </div>
+  {% endblock %}
+ 
+

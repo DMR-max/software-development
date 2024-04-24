@@ -1,0 +1,872 @@
+
+{% extends 'base.html' %}
+{% block body %} 
+
+<form action="/to_priorities.html" method="post" id="msform">
+
+    <!-- Title + info button -->
+    <div class="container">  
+        <div class="main">
+            <h1>Mechanics</h1>
+            <button type="button" class="action-button-bigger" data-bs-toggle="modal" data-bs-target="#exampleModal0">
+                Information
+            </button>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- Progressbar -->
+    <ul id="progressbar">
+        <li class="active">Category 1</li>
+        <li>Category 2</li>
+        <li>Category 3</li>
+    </ul>
+
+    <!-- Category 1 -->
+    <fieldset>
+
+        <h2 class="fs-title">Category 1</h2>
+
+        <!-- Cards -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-dice"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Dice Rolling</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mt-4">
+
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Dice" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-hands"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Drafting / Hand management</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button> 
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mt-4">
+
+                        <h3 class="heading text-left">Score:</h3>
+                        
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Drafting" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-list-check"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Set Collection</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mt-4">
+
+                        <h3 class="heading text-left">Score:</h3>
+                       
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Set" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Next button -->
+        <input type="button" name="next" class="next action-button" value="Next"/>
+
+    </fieldset>
+
+    <!-- Category 2 -->
+    <fieldset>
+
+        <h2 class="fs-title">Category 2</h2>
+        
+        <!-- Cards row 1-->
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+
+            <!-- Card 4 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-table-cells-large"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Modular Board / Hexagon Grid</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>
+
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Modular" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-chart-area"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Area Majority / Influence</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Area" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Cards row 2 -->
+        <br><div class="row row-cols-1 row-cols-md-2 g-3">
+
+            <!-- Card 6 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Variable Player Powers</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Variable" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-person-walking"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Physical</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Physical" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Previous and next button -->
+        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+        <input type="button" name="next" class="next action-button" value="Next"/>
+
+    </fieldset>
+
+    <!-- Category 3 -->
+    <fieldset>
+
+        <h2 class="fs-title">Category 3</h2>
+
+        <!-- Cards row 1-->
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+
+            <!-- Card 8 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Simulation</h3>
+                                
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal8">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Simulation" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-people-carry-box"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Cooperative Games</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Coop" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards row 2 -->
+        <br><div class="row row-cols-1 row-cols-md-2 g-3">
+
+            <!-- Card 10 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Deduction</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal10">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+ 
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Deduction" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+    
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-comments"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Trading / Negotiation</h3>
+
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal11">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>                                        
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="mt-4">
+    
+                        <h3 class="heading text-left">Score:</h3>
+
+                        <!-- Slider -->
+                        <div class="range-slider flat" data-ticks-position='top' style='--min:-50; --max:50; --step:1; --value:0;'>
+                            <input type="range" min="-50" max="50" step="1" value="0" name="Trading" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+                            <div class='range-slider__progress_no'></div>
+                        </div>
+    
+                        <!-- Emoji icons for under the slider -->
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-regular fa-face-frown fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-meh fa-xl"></i>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-face-smile fa-xl"></i>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Previous and submit button -->
+        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+        <button input="" type="submit" class="submit action-button">Submit</button>
+
+    </fieldset>
+
+</form>
+
+
+
+    <!-- Modal card 0 -->
+    <div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Information</h1>
+                </div>
+                <div class="modal-body">
+                    On this page you will be given 11 different board game mechanics. 
+                    To get more information about a mechanic, press the ? in the right corner.
+                    You have to give every mechanic a score by ajusting the sliders.<br><br>
+                    Left: I don't like this mechanic at all.<br>
+                    Center: I'm neutral about this mechanic.<br>
+                    Right: I absolutely love this mechanic.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 1 -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Dice Rolling</h1>
+                </div>
+                <div class="modal-body">
+                    Dice Rolling is a game mechanism that can be used for many things, randomness being the most obvious. It can be a game in and of itself see Yahtzee or Craps.
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 2 -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Drafting / Hand management</h1>
+                </div>
+                <div class="modal-body">
+                    Drafting is used in games in which players pick cards (or tiles, resources, dice, etc) from a common pool, to gain some advantage (immediate or longterm) or to assemble collections that are used to meet objectives within the game. <br><br>
+                    Hand management games are games with cards in them that reward players for playing the cards in certain sequences or groups. The optimal sequence/grouping may vary, depending on board position, cards held and cards played by opponents.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 3 -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Set Collection</h1>
+                </div>
+                <div class="modal-body">
+                    In set collection board games, players collect pieces in the game to make a set of them. These pieces can be anything, but they are usually cards or tiles. Completing sets will earn players extra points, which in turn will help them to win the game.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 4 -->
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modular Board / Hexagon Grid</h1>
+                </div>
+                <div class="modal-body">
+                    In modular board games, play occurs upon a modular board that is composed of multiple pieces, often tiles or cards. In many games, board placement is randomized, leading to different possibilities for strategy and exploration.<br><br>
+                    In a hexagon grid, pieces are placed on a board tessellated with hexagons, which is used for adjacency and/or movement.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 5 -->
+    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Area Majority / Influence</h1>
+                </div>
+                <div class="modal-body">
+                    Area control / influence games are a genre in which players fight for control over a region or territory. This is usually symbolized by having the dominant player’s meeples or figures positioned on top of a specific area.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 6 -->
+    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Variable Player Powers</h1>
+                </div>
+                <div class="modal-body">
+                    Variable Player Powers is a mechanic that grants different abilities and/or paths to victory to the players.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 7 -->
+    <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pyhiscal</h1>
+                </div>
+                <div class="modal-body">
+                    Physical board games are games where you have to use your body like twister.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 8 -->
+    <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Simulation</h1>
+                </div>
+                <div class="modal-body">
+                    Simulation board games attempt to model actual events or situations.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 9 -->
+    <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cooperative Games</h1>
+                </div>
+                <div class="modal-body">
+                    Cooperative board games are board games in which players work together to achieve a common goal rather than competing against each other. Either the players win the game by reaching a pre-determined objective, or all players lose the game, often by not reaching the objective before a certain event ends the game.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 10 -->
+    <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Deduction</h1>
+                </div>
+                <div class="modal-body">
+                    Deduction games are those that require players to form conclusions based on available premises. These games are quite varied, including several different types of logical reasoning. Cat & Mouse games like Scotland Yard are a type of Deduction game in which players use a set of observations and truthful feedback to narrow down possibilities and catch a constantly moving opponent at the right position.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal card 11 -->
+    <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Trading / Negotiation</h1>
+                </div>
+                <div class="modal-body">
+                    In trading board games, players may Trade assets directly with each other, rather than via a Market. <br><br>
+                    Negotiation board games explicitly involve and encourage making deals and alliances with other players and backstabbing when appropriate. Winning is rare without participating in these deals.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(window).load(function(){        
+        $('#exampleModal0').modal('show');
+    });
+</script>
+
+{% endblock %}
+

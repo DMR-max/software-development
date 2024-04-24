@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% block body %} 
+
+
+<style>
+    #progressbar {
+        padding-left: 45%;
+    }
+
+    #progressbar li {
+        width: 20%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #progressbar li {
+            font-size: 10px;
+        }
+    }
+</style>
+
+<form action="/to_results.html" method="post" id="msform">
+
+    <!-- Title + info button -->
+    <div class="container">  
+        <div class="main">
+            <h1>Priority</h1>
+            <button type="button" class="action-button-bigger" data-bs-toggle="modal" data-bs-target="#exampleModal0">
+                Information
+            </button>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- Question 1 -->
+    <fieldset>
+
+        <h2 class="fs-title">Question 1</h2>
+
+            <!-- Card -->
+            <div class="col">
+                <div class="card p-3 mb-2 baseBlock">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+        
+                            <!-- Icon -->
+                            <div class="icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                            <div class="ms-2 c-details">
+                                <h3 class="mb-0">Which one do you find more important?</h3>
+        
+                                <!-- Question mark button -->
+                                <button id="popup" type="button" class="btn btn-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </button>
+        
+                            </div>
+        
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4>
+
+                            <!-- Radio buttons -->
+                            <div class="container">
+                                <div class="row radio_align">
+
+                                    <!-- Radio button 1 -->
+                                    <div class="col">
+                                        <div class="radio__item-group">
+                                            <input class="radio__input" type="radio" id="themes" value="1" name="Radio">
+                                            <label class="radio__label" for="themes">
+                                                <span class="radio__custom-button"></span>
+                                                Themes
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Radio button 2 -->
+                                    <div class="col">
+                                        <div class="radio__item-group">
+                                            <input class="radio__input" type="radio" id="mechanics" value="2" name="Radio">
+                                            <label class="radio__label" for="mechanics">
+                                                <span class="radio__custom-button"></span>
+                                                Mechanics
+                                            </label>
+                                        </div>
+                                    </div>  
+
+                                    <!-- Radio button 3 -->
+                                    <div class="col">
+                                        <div class="radio__item-group">
+                                            <input class="radio__input" type="radio" id="no_preference" value="0" name="Radio" checked>
+                                            <label class="radio__label" for="no_preference">
+                                                <span class="radio__custom-button"></span>
+                                                No preference
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Submit button -->
+        <button input="" type="submit" class="submit action-button">Submit</button>
+
+    </fieldset>
+
+</form>
+
+<!-- Modal card 0 -->
+<div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Information</h1>
+            </div>
+            <div class="modal-body">
+                Now that you've answered all of the questions about themes and mechanics, you will get your recommendations soon.
+                However, in some cases people may find the theme of the game more important than the mechanics or the other way around.
+                That is exactly the reason for this page.
+                Don't worry, after this last question you will receive your recommendations.
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal card 1 -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Priority</h1>
+            </div>
+            <div class="modal-body">
+                Check the box of the one that you find more important and therefore should play a bigger part in generating a board game voor you.
+                If you find them equally important, you can pick the no preference option.
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

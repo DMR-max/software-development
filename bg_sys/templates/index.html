@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+{% block body %} 
+
+<div class="container">  
+    <div class="main">
+        <h1>Board Game Recommendations</h1>
+
+        <div class="blog-slider">
+            <div class="blog-slider__wrp swiper-wrapper">
+
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__content">
+                        <div class="blog-slider__title">About Us</div>
+                        <div class="blog-slider__text">
+                            Hi! Welcome to our website!
+                            We are Ruzanna Baghdasaryan, Sjouk Ketwaru, Joris Lans, Lisa Pomp and Ryan Sleeuwaegen.
+                            We study Data Science & Artificial Intelligence at Leiden University and we made this website for our Software Development course.
+                            For this class, we were free to make any program that we wanted, as long as it made use of a dataset.
+                            So we decided to make a website that could generate recommendations for board games, since we all enjoy playing those.
+                            We hope that this site will help everyone find their perfect board game, so that they can have as much fun as we always do!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__content">
+                        <div class="blog-slider__title">About the site</div>
+                        <div class="blog-slider__text">
+                            If you want to play a board game with your family friends, or maybe on your own, but you are not sure which one, this site can help you!
+                            All you have to do, is press the "get started" button.
+                            This will lead you to a couple of questions.
+                            The first questions will be some basics about the group that you're playing with.
+                            After that you will get some questions to find a game that fits your preferences perfectly.
+                            Once you've answered all of the questions, you will get a number of recommendations.
+                            So what are you waiting for? Press the button!
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="blog-slider__pagination"></div>
+        </div>
+            
+        <div style="padding-top:3%">
+            <button input="" type="button" class="action-button-bigger" data-bs-toggle="modal" data-bs-target="#exampleModal0">
+                <a href="/to_basic_questions.html">Get Started!</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- </form> -->
+{% endblock %}
